@@ -5,6 +5,7 @@ import com.twa.catalog.service.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -27,7 +28,7 @@ public class CountryController {
     }
 
     @PostMapping
-    public ResponseEntity<CountryDTO> save(@RequestBody CountryDTO country) {
+    public ResponseEntity<CountryDTO> save(@RequestBody @Validated  CountryDTO country) {
 
         CountryDTO response = countryService.save(country);
 
@@ -35,7 +36,7 @@ public class CountryController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<CountryDTO> update(@PathVariable Long id, @RequestBody CountryDTO country) {
+    public ResponseEntity<CountryDTO> update(@PathVariable Long id, @RequestBody @Validated CountryDTO country) {
 
         CountryDTO response = countryService.update(id, country);
 
