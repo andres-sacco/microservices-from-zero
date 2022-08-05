@@ -1,22 +1,23 @@
-package com.twa.catalog.dto;
+package com.twa.catalog.domain;
 
-import javax.validation.constraints.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-public class CountryDTO {
-
+@Entity
+public class Country {
+    @Id
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Long id;
-
-    @Size(min = 3, max = 3)
     private String code;
-
-    @NotBlank(message = "Description is mandatory")
     private String description;
 
-    public CountryDTO() {
+    public Country() {
 
     }
 
-    public CountryDTO(Long id, String code, String description) {
+    public Country(Long id, String code, String description) {
         this.id = id;
         this.code = code;
         this.description = description;
