@@ -1,5 +1,13 @@
 version: '3.0'
 services:
+  api-catalog:
+    container_name: api-catalog
+    image: ghcr.io/andres-sacco/api-catalog:1.0.0
+    restart: always 
+    links:
+      - api-catalog-db
+    ports:
+      - 8080:8080
       
   api-catalog-db:
     container_name: api-catalog-db
