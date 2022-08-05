@@ -1,0 +1,7 @@
+<configuration>
+    <include resource="org/springframework/boot/logging/logback/base.xml"/>
+
+    <logger name="com.twa.catalog" additivity="false" level="debug">
+        <appender-ref ref="CONSOLE" />
+    </logger>
+</configuration>

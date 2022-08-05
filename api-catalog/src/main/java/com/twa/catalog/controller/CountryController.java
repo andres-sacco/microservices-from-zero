@@ -9,9 +9,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 @RestController
 public class CountryController implements CountryResource {
+
+    private static Logger logger = LoggerFactory.getLogger(CountryController.class);
 
     private CountryService countryService;
 
@@ -21,6 +26,7 @@ public class CountryController implements CountryResource {
     }
 
     public ResponseEntity<CountryDTO> get(@PathVariable Long id) {
+        logger.info("Obtain information of the country with id: {}", id);
 
         CountryDTO response = countryService.get(id);
 
