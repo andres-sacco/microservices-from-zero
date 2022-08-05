@@ -1,9 +1,28 @@
+management:
+  health.db.enabled: false
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+
+info:
+  application:
+    groupId: '@project.groupId@'
+    artifactId: '@project.artifactId@'
+    version: '@project.version@'
+
 server:
   port: 8080
   servlet:
     context-path: /api/catalog
 
 spring:
+  application:
+    name: api-catalog
   datasource:
     url: "jdbc:mysql://localhost:3310/flights_catalog?autoReconnect=true"
     username: root
