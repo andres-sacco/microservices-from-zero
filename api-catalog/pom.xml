@@ -17,12 +17,39 @@
 
 	<properties>
 		<java.version>11</java.version>
+		<maven.version>3.3.3</maven.version>
 		<orika-core.version>1.5.4</orika-core.version>
 		<springdoc-openapi-ui.version>1.5.8</springdoc-openapi-ui.version>
+
+		<jboss-logging-annotations.version>2.2.1.Final</jboss-logging-annotations.version>
+		<jboss-logging-processor.version>2.2.1.Final</jboss-logging-processor.version>
+		<classgraph.version>4.8.108</classgraph.version>
 
 		<jacoco-maven-plugin.version>0.8.7</jacoco-maven-plugin.version>
 		<skipUnitTests>false</skipUnitTests>
 	</properties>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.jboss.logging</groupId>
+				<artifactId>jboss-logging-annotations</artifactId>
+				<version>${jboss-logging-annotations.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.jboss.logging</groupId>
+				<artifactId>jboss-logging-processor</artifactId>
+				<version>${jboss-logging-processor.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>io.github.classgraph</groupId>
+				<artifactId>classgraph</artifactId>
+				<version>${classgraph.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
 	<dependencies>
 
@@ -124,6 +151,34 @@
 						<goals>
 							<goal>report</goal>
 						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
+			<!-- Validate dependencies -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>${maven-enforcer-plugin.version}</version>
+				<executions>
+					<execution>
+						<id>enforce-versions</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<dependencyConvergence>
+									<uniqueVersions>true</uniqueVersions>
+								</dependencyConvergence>
+								<requireMavenVersion>
+									<version>${maven.version}</version>
+								</requireMavenVersion>
+								<requireJavaVersion>
+									<version>${java.version}</version>
+								</requireJavaVersion>
+							</rules>
+						</configuration>
 					</execution>
 				</executions>
 			</plugin>
