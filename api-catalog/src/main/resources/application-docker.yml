@@ -1,0 +1,39 @@
+management:
+  health.db.enabled: false
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      base-path: /
+      exposure:
+        include: "*"
+
+info:
+  application:
+    groupId: '@project.groupId@'
+    artifactId: '@project.artifactId@'
+    version: '@project.version@'
+
+server:
+  port: 8080
+  servlet:
+    context-path: /api/catalog
+
+spring:
+  application:
+    name: api-catalog
+  datasource:
+    url: "jdbc:mysql://api-catalog-db:3306/flights_catalog?autoReconnect=true"
+    username: root
+    password: muppet
+    validation-query: select 1;
+    maxActive: 100
+  jpa:
+    show-sql: false
+    generate-ddl: false
+    properties:
+      hibernate:
+        ejb.naming_strategy: org.hibernate.cfg.ImprovedNamingStrategy
+        dialect: org.hibernate.dialect.MySQL57Dialect
+        hbm2ddl.auto: create-drop
