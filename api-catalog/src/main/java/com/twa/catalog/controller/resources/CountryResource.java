@@ -79,5 +79,5 @@ public interface CountryResource {
             }
     )
     @DeleteMapping("/{id}")
-    ResponseEntity<Void> update(@PathVariable Long id);
+    ResponseEntity<Void> delete(@PathVariable Long id);
 }
