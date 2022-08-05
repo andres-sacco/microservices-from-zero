@@ -41,7 +41,7 @@ public class CountryController implements CountryResource {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-    public ResponseEntity<Void> update(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
 
         countryService.delete(id);
 
