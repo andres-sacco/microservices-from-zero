@@ -18,6 +18,7 @@
 	<properties>
 		<java.version>11</java.version>
 		<orika-core.version>1.5.4</orika-core.version>
+		<springdoc-openapi-ui.version>1.5.8</springdoc-openapi-ui.version>
 	</properties>
 
 	<dependencies>
@@ -59,6 +60,12 @@
 			<groupId>ma.glasnost.orika</groupId>
 			<artifactId>orika-core</artifactId>
 			<version>${orika-core.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc-openapi-ui.version}</version>
 		</dependency>
 
 		<!-- Test dependencies -->
