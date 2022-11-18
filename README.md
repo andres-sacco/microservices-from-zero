@@ -1,4 +1,4 @@
-# 2022 - Nerdearla 101
+# Developing a microservice from zero with Java and Spring Boot
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
