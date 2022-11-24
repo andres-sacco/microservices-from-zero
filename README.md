@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository contains all the files related with the Nerdearla conference.
+This repository contains all the files related with the conference.
 
 ## Context
 
